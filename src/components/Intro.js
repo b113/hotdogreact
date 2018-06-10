@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import hotdog from '../img/hotdog.png';
+import {Link} from 'react-router-dom';
+
 
 class Intro extends Component {
   render() {
@@ -9,7 +11,7 @@ class Intro extends Component {
         <p className="intro__text">
           Dirty Dogs serves all-beef, vegan and vegatagian hot dogs.
         </p>
-        <a href="" className="intro__link">More Dogs ‘n Make Em Hot</a>
+        <Link to='/' className="intro__link">More Dogs ‘n Make Em Hot</Link>
       </section>
     );
   }

@@ -7,10 +7,10 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="header__overlay"></div>
-        <a href="" className="instagram-logo">
+        <Link to='/' className="instagram-logo">
           <img className="instagram-logo__image" src={logo} alt="Instagram"/>
           <span className="instagram-logo__hashtag">#hotdogs</span>
-        </a>
+        </Link>
         <div className="instagram-feed">
           <div className="instagram-feed__item instagram-feed__item--photo-1"></div>
           <div className="instagram-feed__item instagram-feed__item--photo-2"></div>
@@ -26,9 +26,9 @@ class Header extends Component {
           <div className="instagram-feed__item instagram-feed__item--photo-12"></div>
         </div>
         <nav className="nav-top">
-          <a className="nav-top__item" href="">menu</a>
-          <a className="nav-top__item" href="">catering</a>
-          <a className="nav-top__item" href="">about us</a>
+          <Link to='/' className="nav-top__item">menu</Link>
+          <Link to='/' className="nav-top__item">catering</Link>
+          <Link to='/' className="nav-top__item">about us</Link>
           <Link className="nav-top__item" to='/contact'>contact</Link>
         </nav>
       </header>

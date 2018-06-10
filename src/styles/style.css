@@ -289,6 +289,7 @@
 
 .contacts {
   max-width: 1444px;
+  height: 420px;
   margin: 0 auto;
   padding: 50px 0;
 }
@@ -359,6 +360,15 @@
   border: none;
   padding: 0;
   cursor: pointer;
+}
+
+.contacts__thanks-message {
+  text-align: center;
+  color: #555559;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  margin: 15% 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -444,7 +454,8 @@
   .contact-form__submit-btn {
     width: 100%;
   }
-}
+
+ }
 
 @media only screen and (min-width: 600px) {
   .instagram-feed__item {

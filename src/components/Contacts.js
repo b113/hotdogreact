@@ -8,22 +8,20 @@ class Contacts extends Component {
   state = {
     name: '',
     email: '',
-    comment: ''
+    comment: '',
+    send: false
   };
 
   handleChangeName = event => {
     this.setState({name: event.target.value});
-    console.log('name')
   };
 
   handleChangeEmail = event => {
     this.setState({email: event.target.value});
-    console.log('email')
   };
 
   handleChangeComment = event => {
     this.setState({comment: event.target.value});
-    console.log('comment')
   };
 
   handleSubmit = event => {
@@ -39,6 +37,7 @@ class Contacts extends Component {
         console.log(res);
         console.log(res.data);
       });
+    this.setState({name: '', email: '', comment: '', send: true});
   };
 
   render() {
@@ -46,29 +45,33 @@ class Contacts extends Component {
       <div>
         <Header/>
         <section className="contacts">
-          <form className="contact-form" onSubmit={this.handleSubmit}>
-            <div className="contact-form__item">
-              <label className="contact-form__label">Name:</label>
-              <input className="contact-form__input" type="text" name="name" required
-                     onChange={this.handleChangeName}/>
-            </div>
+          {this.state.send ?
+            <h3 className="contacts__thanks-message">Thanks for your message</h3>
+            :
+            <form className="contact-form" onSubmit={this.handleSubmit}>
+              <div className="contact-form__item">
+                <label className="contact-form__label">Name:</label>
+                <input className="contact-form__input" type="text" name="name" required
+                       onChange={this.handleChangeName} value={this.state.name}/>
+              </div>
 
-            <div className="contact-form__item">
-              <label className="contact-form__label">Email:</label>
-              <input className="contact-form__input" type="email" name="email" required
-                     onChange={this.handleChangeEmail}/>
-            </div>
+              <div className="contact-form__item">
+                <label className="contact-form__label">Email:</label>
+                <input className="contact-form__input" type="email" name="email" required
+                       onChange={this.handleChangeEmail} value={this.state.email}/>
+              </div>
 
-            <div className="contact-form__item">
-              <label className="contact-form__label">Comment:</label>
-              <textarea className="contact-form__textarea" required placeholder="Leave your message"
-                        onChange={this.handleChangeComment}></textarea>
-            </div>
+              <div className="contact-form__item">
+                <label className="contact-form__label">Comment:</label>
+                <textarea className="contact-form__textarea" required placeholder="Leave your message"
+                          onChange={this.handleChangeComment} value={this.state.comment}></textarea>
+              </div>
 
-            <div className="contact-form__item">
-              <input className="contact-form__submit-btn" type="submit"/>
-            </div>
-          </form>
+              <div className="contact-form__item">
+                <input className="contact-form__submit-btn" type="submit"/>
+              </div>
+            </form>
+          }
         </section>
         <Footer/>
       </div>
